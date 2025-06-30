@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import urllib.parse
+import concurrent.futures
+
 
 def get_v2ray_links(ts_url):
     try:
@@ -26,13 +28,15 @@ def get_v2ray_links(ts_url):
                     v2ray_configs.append(text)
 
             return v2ray_configs
-    except Exception as  e:
-        print(f'Failed to fetch URL: { e }')
+    except Exception as e:
+        print(f'Failed to fetch URL: {e}')
         return None
+
 
 def save_all_configs(v2ray_configs):
     with open('Subs.txt', 'w', encoding='utf-8') as f:
         f.write('\n'.join(v2ray_configs))
+
 
 if __name__ == '__main__':
     telegram_urls = [
@@ -50,18 +54,32 @@ if __name__ == '__main__':
         'God_CONFIG', 'V2pedia', 'Configforvpn01', 'V2RayOxygen', 'v2rayNG_VPN', 'v2RayChannel', 'Easy_Free_VPN'
     ]
 
+    # 构建完整URL列表
+    base_url = 'https://t.me/s/'
+    full_urls = [base_url + path for path in telegram_urls]
+
     all_v2ray_configs = []
-    prefix = 'https://t.me/s/'
-    for url in telegram_urls:
-        url = prefix + url
-        if configs := get_v2ray_links(url):
-            all_v2ray_configs.extend(configs)
+
+    # 使用线程池并发请求 (默认线程数为 min(32, os.cpu_count() + 4))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+        # 提交所有任务并获取Future对象
+        future_to_url = {executor.submit(get_v2ray_links, url): url for url in full_urls}
+
+        for future in concurrent.futures.as_completed(future_to_url):
+            url = future_to_url[future]
+            try:
+                configs = future.result()
+                if configs:
+                    print(f"Found {len(configs)} configs in {url}")
+                    all_v2ray_configs.extend(configs)
+            except Exception as e:
+                print(f"Error processing {url}: {e}")
 
     if all_v2ray_configs:
         # 去重处理
         unique_configs = list(set(all_v2ray_configs))
         # 保存到Subs.txt
         save_all_configs(unique_configs)
-        print(f'Saved { len(unique_configs) } unique configs to Subs.txt')
+        print(f'Saved {len(unique_configs)} unique configs to Subs.txt')
     else:
         print('No V2Ray configs found.')
