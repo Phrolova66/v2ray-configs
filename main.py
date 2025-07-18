@@ -45,13 +45,14 @@ if __name__ == '__main__':
         'foxrayiran', 'DailyV2RY', 'yaney_01', 'FreakConfig', 'EliV2ray', 'ServerNett', 'v2rayng_fa2', 'v2rayng_org',
         'freeland8', 'vmessiran', 'Outline_Vpn', 'vmessq', 'WeePeeN', 'V2rayNG3', 'ShadowsocksM', 'networknim',
         'V2rayNGvpni', 'custom_14', 'v2rayNG_VPNN', 'v2ray_outlineir', 'v2_vmess', 'FreeVlessVpn', 'FreeNet1500',
-        'v2rayan', 'ShadowSocks_s', 'napsternetv_config', 'vpnmasi', 'V2Ray_FreedomIran', 'V2RAY_VMESS_free',
+        'v2rayan', 'ShadowSocks_s', 'napsternetv_config', 'vpnmasi', 'V2Ray_FreedomIran', 'V2RAY_VMESS_free', 'xixv2ray'
         'v2ray_for_free', 'V2rayN_Free', 'free4allVPN', 'vpn_ocean', 'configV2rayForFree', 'FreeV2rays', 'DigiV2ray',
         'freev2rayssr', 'v2rayn_server', 'Shadowlinkserverr', 'iranvpnet', 'vmess_iran', 'mahsaamoon1', 'V2RAY_NEW',
         'configV2rayNG', 'config_v2ray', 'vpn_proxy_custom', 'v2ray_custom', 'VPNCUSTOMIZE', 'HTTPCustomLand',
         'ViPVpn_v2ray', 'frev2ray', 'v2ray_ar', 'beta_v2ray', 'vip_vpn_2022', 'FOX_VPN66', 'VorTexIRN', 'YtTe3la',
         'Network_442', 'VPN_443', 'v2rayng_v', 'ultrasurf_12', 'iSeqaro', 'frev2rayng', 'Awlix_ir', 'v2rayNG_Matsuri',
-        'God_CONFIG', 'V2pedia', 'Configforvpn01', 'V2RayOxygen', 'v2rayNG_VPN', 'v2RayChannel', 'Easy_Free_VPN'
+        'God_CONFIG', 'V2pedia', 'Configforvpn01', 'V2RayOxygen', 'v2rayNG_VPN', 'v2RayChannel', 'Easy_Free_VPN',
+        'Alpha_V2ray_Iran', 'WarV2Ray', 'Farah_VPN', 'iMTProto', 'DALTON_PING', 'anty_filter', 'PASARGAD_V2rayNG'
     ]
 
     # 构建完整URL列表
